@@ -56,11 +56,11 @@ end)
 --Amount of peds walking & driving around
 Citizen.CreateThread(function()
   while true do
-		Citizen.Wait(0)
+	Citizen.Wait(0)
     	WaterOverrideSetStrength(0.0)
-		SetVehicleDensityMultiplierThisFrame(0.52)
-		SetPedDensityMultiplierThisFrame(1.0)
-	  	SetParkedVehicleDensityMultiplierThisFrame(0.40)
-		SetScenarioPedDensityMultiplierThisFrame(0.31, 0.31)
-	end
+	SetVehicleDensityMultiplierThisFrame(0.52)
+	SetPedDensityMultiplierThisFrame(1.0)
+  	SetParkedVehicleDensityMultiplierThisFrame(0.40)
+	SetScenarioPedDensityMultiplierThisFrame(0.31, 0.31)
+    end
 end)
