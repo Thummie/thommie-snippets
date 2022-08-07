@@ -11,19 +11,6 @@ Citizen.CreateThread(function()
 	end
 end)
 
--- Disable Blind Fire while not in cover
-Citizen.CreateThread(function()
-	while true do
-		Citizen.Wait(4)
-		local ped = GetPlayerPed(-1)
-		if not IsPlayerFreeAiming(ped) then
-			DisableControlAction(2, 24, true)
-			DisableControlAction(2, 142, true)
-			DisableControlAction(2, 257, true)
-		end
-	end
-end)
-
 -- Disable Pistol Whip
 Citizen.CreateThread(function()
 	while true do
