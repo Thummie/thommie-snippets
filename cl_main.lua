@@ -24,3 +24,31 @@ Citizen.CreateThread(function()
 		end
 	end
 end)
+
+-- Vehicle Air Control
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(4)
+        local Vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
+    	if DoesEntityExist(Vehicle) and not IsEntityDead(Vehicle) then
+    	    local Model = GetEntityModel(Vehicle)
+            if not IsThisModelABoat(Model) and not IsThisModelAHeli(Model) and not IsThisModelAPlane(Model) and not IsThisModelABike(Model) and IsEntityInAir(Vehicle) then
+		DisableControlAction(0, 280)-- Left Shift
+		DisableControlAction(0, 281)-- Left Control
+		DisableControlAction(0, 60)-- Left Shift
+		DisableControlAction(0, 61)-- Lef Control
+		DisableControlAction(0, 131)-- Left Shift
+		DisableControlAction(0, 132)-- Lef Control
+		DisableControlAction(0, 209)-- Left Shift
+		DisableControlAction(0, 210)-- Lef Control
+		DisableControlAction(0, 340)-- Left Shift
+		DisableControlAction(0, 341)-- Lef Control
+		DisableControlAction(0, 63)-- A
+		DisableControlAction(0, 64)-- D
+		DisableControlAction(0, 338)-- A
+		DisableControlAction(0, 339)-- D
+		DisableControlAction(0, 59)-- D
+           end
+	end
+    end
+end)
