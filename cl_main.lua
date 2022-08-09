@@ -1,7 +1,7 @@
 -- Disable Blind Fire while in cover
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
-	Citizen.Wait(4)
+	Wait(4)
 	local ped = GetPlayerPed(-1)
 	if IsPedInCover(ped) and not IsPedAimingFromCover(ped) then
 	    DisableControlAction(2, 24, true)
@@ -12,23 +12,23 @@ Citizen.CreateThread(function()
 end)
 
 -- Disable Pistol Whip
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
-	Citizen.Wait(4)
+	Wait(4)
 	if IsPedArmed(GetPlayerPed(-1), 6) then
 	    DisableControlAction(1, 140, true)
       	    DisableControlAction(1, 141, true)
 	    DisableControlAction(1, 142, true)
 	else
-	    Citizen.Wait(1500)
+	    Wait(1500)
 	end
     end
 end)
 
 -- Vehicle Air Control
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
-        Citizen.Wait(4)
+        Wait(4)
         local Vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
     	if DoesEntityExist(Vehicle) and not IsEntityDead(Vehicle) then
     	    local Model = GetEntityModel(Vehicle)
@@ -54,9 +54,9 @@ Citizen.CreateThread(function()
 end)
 
 --Amount of peds walking & driving around
-Citizen.CreateThread(function()
+CreateThread(function()
   while true do
-	Citizen.Wait(0)
+	Wait(0)
     	WaterOverrideSetStrength(0.0)
 	SetVehicleDensityMultiplierThisFrame(0.52)
 	SetPedDensityMultiplierThisFrame(1.0)
