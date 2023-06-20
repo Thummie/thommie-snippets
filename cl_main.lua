@@ -2,7 +2,7 @@
 CreateThread(function()
     while true do
 	Wait(4)
-	local ped = GetPlayerPed(-1)
+	local ped = PlayerPedId()
 	if IsPedInCover(ped) and not IsPedAimingFromCover(ped) then
 	    DisableControlAction(2, 24, true)
 	    DisableControlAction(2, 142, true)
@@ -15,7 +15,7 @@ end)
 CreateThread(function()
     while true do
 	Wait(4)
-	if IsPedArmed(GetPlayerPed(-1), 6) then
+	if IsPedArmed(PlayerPedId(), 6) then
 	    DisableControlAction(1, 140, true)
       	    DisableControlAction(1, 141, true)
 	    DisableControlAction(1, 142, true)
