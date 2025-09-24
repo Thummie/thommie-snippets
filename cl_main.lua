@@ -64,3 +64,13 @@ CreateThread(function()
 	SetScenarioPedDensityMultiplierThisFrame(0.31, 0.31)
     end
 end)
+
+-- The following code only works together with ox_lib
+-- No longer use helmets on bikes
+lib.onCache('vehicle', function(value, oldValue)
+    local isMotorcycle = GetVehicleClass(value) == 8
+    if not isMotorcycle then return end
+
+    SetPedHelmet(cache.ped, false)
+    RemovePedHelmet(cache.ped, true)
+end)
